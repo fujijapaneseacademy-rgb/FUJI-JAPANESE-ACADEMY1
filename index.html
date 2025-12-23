@@ -4,46 +4,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FUJI JAPANESE INSTITUTE</title>
-    <meta name="description" content="Learn Japanese at FUJI JAPANESE INSTITUTE. JLPT N5-N1, Spoken Japanese, and Cultural Courses." />
+    <title>FUJI JAPANESE INSTITUTE | Premium Japanese Learning</title>
+    <meta name="description" content="Master Japanese with FUJI JAPANESE INSTITUTE. JLPT N5-N1 courses, native faculty, and cultural immersion in Electronic City, Bengaluru." />
+    
+    <!-- CRITICAL: Process Shim must be first to prevent "process is not defined" errors on Netlify -->
+    <script>
+      (function() {
+        var shim = { env: { API_KEY: "" } };
+        window.process = shim;
+        window.global = window;
+        // This ensures libraries looking for global process don't crash the app
+      })();
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              jp: ['Noto Sans JP', 'sans-serif'],
+            },
+            colors: {
+              fuji: {
+                red: '#dc2626',
+                indigo: '#1e1b4b',
+              }
+            }
+          }
+        }
       }
-      h1, h2, h3, h4, h5, h6, .jp-text {
-        font-family: 'Noto Sans JP', sans-serif;
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-stone-50 text-slate-900 antialiased selection:bg-red-100 selection:text-red-900;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          @apply font-jp;
+        }
       }
-      /* Custom scrollbar for webkit */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
+      .fuji-gradient {
+        @apply bg-gradient-to-br from-red-600 to-red-700;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
-  }
-}
-</script>
-</head>
-  <body class="bg-stone-50 text-slate-900 antialiased selection:bg-red-100 selection:text-red-900">
-    <div id="root"></div>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+        "react/": "https://aistudiocdn.com/react@^19.2.1/",
+        "react": "https://aistudiocdn.com/react@^19.2.1",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Fallback while React loads -->
+      <div style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; background: #fefaf9;">
+        <div style="width: 40px; height: 40px; border: 3px solid #dc2626; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <p style="margin-top: 20px; color: #1e1b4b; font-weight: 600; letter-spacing: 0.05em;">FUJI JAPANESE INSTITUTE</p>
+        <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+      </div>
+    </div>
   </body>
 </html>
