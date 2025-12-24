@@ -6,9 +6,15 @@
     <title>FUJI JAPANESE INSTITUTE</title>
     <meta name="description" content="Learn Japanese at FUJI JAPANESE INSTITUTE. JLPT N5-N1, Spoken Japanese, and Cultural Courses." />
     
-    <!-- Environment Shim for Netlify Deployment -->
+    <!-- Environment Shim for Netlify Deployment - Must be first to prevent process errors -->
     <script>
-      window.process = window.process || { env: { API_KEY: "" } };
+      window.process = { env: { API_KEY: "" } };
+      try {
+        // Safe check for injected environment variables
+        if (typeof process !== 'undefined' && process.env) {
+          window.process.env = { ...window.process.env, ...process.env };
+        }
+      } catch (e) {}
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,17 +62,19 @@
       }
     </style>
     <script type="importmap">
-    {
-      "imports": {
-        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
-        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-        "react/": "https://aistudiocdn.com/react@^19.2.1/",
-        "react": "https://aistudiocdn.com/react@^19.2.1",
-        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
-      }
-    }
-    </script>
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.1",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.1/client",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
   </head>
   <body>
     <div id="root"></div>

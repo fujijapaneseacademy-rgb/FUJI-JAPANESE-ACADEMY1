@@ -1,17 +1,23 @@
 import { GoogleGenAI } from "@google/genai";
 
 export const generateAIResponse = async (prompt: string): Promise<string> => {
-  // Use the environment variable directly as required by guidelines
-  const apiKey = process.env.API_KEY;
-
-  if (!apiKey) {
-    return "Konnichiwa! I'm Fuji Sensei. 🌸 I'm currently operating in offline mode. Please contact us via WhatsApp for any course inquiries!";
+  // Safe accessor for API key to prevent "process is not defined" errors in browser
+  let apiKey = '';
+  try {
+    apiKey = process.env.API_KEY || (window as any).process?.env?.API_KEY || '';
+  } catch (e) {
+    apiKey = (window as any).process?.env?.API_KEY || '';
   }
 
-  // Initialize client with correct named parameter
-  const ai = new GoogleGenAI({ apiKey });
+  if (!apiKey) {
+    console.warn("Gemini API Key missing. Fuji Assistant running in guest mode.");
+    return "Konnichiwa! I'm Fuji Sensei. 🌸 I'm currently greeting guests. To inquire about specific batch timings or fees, please use the 'Apply Now' button or WhatsApp us!";
+  }
 
   try {
+    // Initialize inside the function to ensure the latest apiKey is used
+    const ai = new GoogleGenAI({ apiKey });
+
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
