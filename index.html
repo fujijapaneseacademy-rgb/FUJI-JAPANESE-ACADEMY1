@@ -1,20 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FUJI JAPANESE INSTITUTE | Premium Japanese Learning</title>
-    <meta name="description" content="Master Japanese with FUJI JAPANESE INSTITUTE. JLPT N5-N1 courses, native faculty, and cultural immersion in Electronic City, Bengaluru." />
+    <title>FUJI JAPANESE INSTITUTE</title>
+    <meta name="description" content="Learn Japanese at FUJI JAPANESE INSTITUTE. JLPT N5-N1, Spoken Japanese, and Cultural Courses." />
     
-    <!-- CRITICAL: Process Shim must be first to prevent "process is not defined" errors on Netlify -->
+    <!-- Environment Shim for Netlify Deployment -->
     <script>
-      (function() {
-        var shim = { env: { API_KEY: "" } };
-        window.process = shim;
-        window.global = window;
-        // This ensures libraries looking for global process don't crash the app
-      })();
+      window.process = window.process || { env: { API_KEY: "" } };
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,9 +30,7 @@
         }
       }
     </script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style type="text/tailwindcss">
       @layer base {
         body {
@@ -48,11 +40,21 @@
           @apply font-jp;
         }
       }
-      .fuji-gradient {
-        @apply bg-gradient-to-br from-red-600 to-red-700;
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
       }
     </style>
-
     <script type="importmap">
     {
       "imports": {
@@ -67,13 +69,6 @@
     </script>
   </head>
   <body>
-    <div id="root">
-      <!-- Fallback while React loads -->
-      <div style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; background: #fefaf9;">
-        <div style="width: 40px; height: 40px; border: 3px solid #dc2626; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-        <p style="margin-top: 20px; color: #1e1b4b; font-weight: 600; letter-spacing: 0.05em;">FUJI JAPANESE INSTITUTE</p>
-        <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
-      </div>
-    </div>
+    <div id="root"></div>
   </body>
 </html>

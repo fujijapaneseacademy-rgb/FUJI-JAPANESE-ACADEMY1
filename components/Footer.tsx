@@ -23,9 +23,33 @@ const Footer: React.FC = () => {
               Your gateway to mastering the Japanese language and culture. Premium JLPT coaching at FUJI JAPANESE INSTITUTE with native expertise.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-red-600 hover:text-white transition-all"><Facebook className="w-4 h-4" /></a>
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-red-600 hover:text-white transition-all"><Instagram className="w-4 h-4" /></a>
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-red-600 hover:text-white transition-all"><Linkedin className="w-4 h-4" /></a>
+              <a 
+                href="https://www.facebook.com/profile.php?id=61583139153440" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-slate-800 rounded-full hover:bg-red-600 hover:text-white transition-all"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.instagram.com/fujijapaneseacademyy/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-slate-800 rounded-full hover:bg-red-600 hover:text-white transition-all"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/fuji-japanese-academy-497156391" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-slate-800 rounded-full hover:bg-red-600 hover:text-white transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
