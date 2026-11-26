@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /reset-password
+
+Sitemap: https://fujijapaneseacademy.com/sitemap.xml

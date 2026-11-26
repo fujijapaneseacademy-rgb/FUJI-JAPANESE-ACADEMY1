@@ -1,0 +1,349 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# ==========================================
+# 301 Permanent Canonical Redirects
+# ==========================================
+[[redirects]]
+  from = "/links"
+  to = "/connect"
+  status = 301
+
+[[redirects]]
+  from = "/qrcode"
+  to = "/qr"
+  status = 301
+
+[[redirects]]
+  from = "/pay"
+  to = "/payment"
+  status = 301
+
+[[redirects]]
+  from = "/n5"
+  to = "/jlpt/n5"
+  status = 301
+
+[[redirects]]
+  from = "/n4"
+  to = "/jlpt/n4"
+  status = 301
+
+[[redirects]]
+  from = "/n3"
+  to = "/jlpt/n3"
+  status = 301
+
+[[redirects]]
+  from = "/n2"
+  to = "/jlpt/n2"
+  status = 301
+
+[[redirects]]
+  from = "/n1"
+  to = "/jlpt/n1"
+  status = 301
+
+[[redirects]]
+  from = "/enroll"
+  to = "/enquire"
+  status = 301
+
+[[redirects]]
+  from = "/admissions"
+  to = "/enquire"
+  status = 301
+
+[[redirects]]
+  from = "/sitemap-academy.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/courses"
+  to = "/courses"
+  status = 301
+  force = true
+  query = { q = "{search_term_string}" }
+
+# Security: Block sensitive dotfiles and repository directories
+[[redirects]]
+  from = "/.env*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/supabase/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scripts/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Utility & Authenticated SPA Routing Fallbacks
+[[redirects]]
+  from = "/admin/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/signup"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/forgot-password"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/reset-password"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/payment"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/qr"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/connect"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/enquire"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/verify-certificate"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/verify"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/corporate"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/corporate/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/jlpt-exam-dates-india"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/jlpt-exam-dates-india/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/mock-test"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/mock-test/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/practice/*"
+  to = "/index.html"
+  status = 200
+
+# Parent Category 301 Fallbacks
+[[redirects]]
+  from = "/locations/state/*"
+  to = "/locations"
+  status = 301
+
+[[redirects]]
+  from = "/locations/*"
+  to = "/locations"
+  status = 301
+
+[[redirects]]
+  from = "/courses/*"
+  to = "/courses"
+  status = 301
+
+[[redirects]]
+  from = "/career/*"
+  to = "/career"
+  status = 301
+
+[[redirects]]
+  from = "/careers/*"
+  to = "/careers"
+  status = 301
+
+[[redirects]]
+  from = "/jlpt/*"
+  to = "/jlpt"
+  status = 301
+
+[[redirects]]
+  from = "/learn/*"
+  to = "/learn"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog"
+  status = 301
+
+# Unknown routes return custom 404 page with HTTP 404 status
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# ==========================================
+# Netlify Sitemap Plugin Configuration
+# ==========================================
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  [plugins.inputs]
+    baseUrl = "https://fujijapaneseacademy.com"
+    exclude = [
+      './404.html',
+      '404.html',
+      '**/404.html',
+      '**/**/404.html',
+      './dist/404.html',
+      'dist/404.html',
+      'dist/**/404.html',
+      '**/404/**',
+      '404.html',
+      './dist/admin/**',
+      'dist/admin/**',
+      '**/admin/**',
+      './dist/dashboard/**',
+      'dist/dashboard/**',
+      '**/dashboard/**',
+      './dist/login/**',
+      'dist/login/**',
+      '**/login/**',
+      './dist/signup/**',
+      'dist/signup/**',
+      '**/signup/**',
+      './dist/payment/**',
+      'dist/payment/**',
+      '**/payment/**',
+      './dist/qr/**',
+      'dist/qr/**',
+      '**/qr/**',
+      './dist/connect/**',
+      'dist/connect/**',
+      '**/connect/**',
+      './dist/enquire/**',
+      'dist/enquire/**',
+      '**/enquire/**',
+      './dist/forgot-password/**',
+      'dist/forgot-password/**',
+      '**/forgot-password/**',
+      './dist/reset-password/**',
+      'dist/reset-password/**',
+      '**/reset-password/**',
+      './dist/terms/**',
+      'dist/terms/**',
+      '**/terms/**',
+      './dist/privacy-policy/**',
+      'dist/privacy-policy/**',
+      '**/privacy-policy/**'
+    ]
+
+# ==========================================
+# Security & XML Header Rules
+# ==========================================
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    X-Content-Type-Options = "nosniff"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sitemap-academy.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    X-Content-Type-Options = "nosniff"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking
+    X-Frame-Options = "DENY"
+    # Prevent MIME sniffing
+    X-Content-Type-Options = "nosniff"
+    # XSS Protection (legacy browsers)
+    X-XSS-Protection = "1; mode=block"
+    # Referrer Policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Permissions Policy - restrict dangerous APIs
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(self), usb=(), interest-cohort=()"
+    # HSTS - force HTTPS in production
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://sdk.cashfree.com https://*.cashfree.com https://checkout.razorpay.com https://fonts.googleapis.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://*.supabase.co https://ovnohmkktqlusveemydb.supabase.co https://api.resend.com https://api.cashfree.com https://sandbox.cashfree.com https://*.cashfree.com https://api.razorpay.com https://checkout.razorpay.com https://lumberjack.razorpay.com https://generativelanguage.googleapis.com https://api.emailjs.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://api.cashfree.com https://sandbox.cashfree.com https://*.cashfree.com https://checkout.cashfree.com https://api.razorpay.com https://checkout.razorpay.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

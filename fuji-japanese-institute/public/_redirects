@@ -1,0 +1,56 @@
+# 301 Permanent Canonical Redirects
+/links        /connect      301
+/qrcode       /qr           301
+/pay          /payment      301
+/n5           /jlpt/n5      301
+/n4           /jlpt/n4      301
+/n3           /jlpt/n3      301
+/n2           /jlpt/n2      301
+/n1           /jlpt/n1      301
+/enroll       /enquire      301
+/admissions   /enquire      301
+/sitemap-academy.xml /sitemap.xml 301
+/courses  q=:param  /courses  301
+
+# Security: Block access to environment files and sensitive repository paths
+/.env*            /404.html     404
+/supabase/*       /404.html     404
+/scripts/*        /404.html     404
+
+# Utility & Authenticated SPA Routing Fallbacks
+/admin/*          /index.html   200
+/admin            /index.html   200
+/dashboard/*      /index.html   200
+/dashboard        /index.html   200
+/login            /index.html   200
+/signup           /index.html   200
+/forgot-password  /index.html   200
+/reset-password   /index.html   200
+/payment          /index.html   200
+/qr               /index.html   200
+/connect          /index.html   200
+/enquire          /index.html   200
+/terms            /index.html   200
+/privacy-policy   /index.html   200
+/verify-certificate /index.html 200
+/verify           /index.html   200
+/corporate        /index.html   200
+/corporate/*      /index.html   200
+/jlpt-exam-dates-india /index.html 200
+/jlpt-exam-dates-india/* /index.html 200
+/mock-test        /index.html   200
+/mock-test/*      /index.html   200
+/practice/*       /index.html   200
+
+# Parent category 301 fallbacks
+/locations/state/*  /locations  301
+/locations/*  /locations  301
+/courses/*  /courses  301
+/career/*  /career  301
+/careers/*  /careers  301
+/jlpt/*  /jlpt  301
+/learn/*  /learn  301
+/blog/*  /blog  301
+
+# Unknown routes return custom 404 page with HTTP 404 status
+/*            /404.html     404

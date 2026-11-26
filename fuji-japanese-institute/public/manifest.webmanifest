@@ -1,0 +1,26 @@
+{
+  "name": "Fuji Japanese Academy",
+  "short_name": "Fuji Academy",
+  "description": "Premier Japanese Language & JLPT Institute in Bengaluru & Online",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#DC2626",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

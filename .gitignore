@@ -1,0 +1,17 @@
+# Local Netlify folder
+.netlify
+*.pdf
+*.docx
+*.zip
+fuji documents/
+
+# Subagent logs & local cache
+.agents/
+
+# Nested independent repository
+fuji-japanese-in/
+
+# Environment variables (secrets)
+.env
+.env.*
+!.env.example

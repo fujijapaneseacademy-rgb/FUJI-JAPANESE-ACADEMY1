@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-fuji-light text-fuji-slate antialiased selection:bg-fuji-red/20 selection:text-fuji-red overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight text-fuji-indigo;
+  }
+
+  /* Automatic contrast fix: headings inside dark or text-white containers are bright white */
+  .text-white h1,
+  .text-white h2,
+  .text-white h3,
+  .text-white h4,
+  .text-white h5,
+  .text-white h6,
+  .bg-fuji-indigo h1,
+  .bg-fuji-indigo h2,
+  .bg-fuji-indigo h3,
+  .bg-fuji-indigo h4,
+  .bg-fuji-indigo h5,
+  .bg-fuji-indigo h6,
+  .bg-fuji-red h1,
+  .bg-fuji-red h2,
+  .bg-fuji-red h3,
+  .bg-fuji-red h4,
+  .bg-fuji-red h5,
+  .bg-fuji-red h6 {
+    color: #FFFFFF !important;
+  }
+
+  /* Smooth scrolling for in-page anchors */
+  @media (prefers-reduced-motion: no-preference) {
+    :root:has(:target) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-fuji-indigo/80 backdrop-blur-md border border-white/10 text-white;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-fuji-indigo to-fuji-red;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EDF2F4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+  border: 2px solid #EDF2F4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Accessibility: Respect user reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
